@@ -1,15 +1,11 @@
 function flipEveryNChars(input, n) {
     // your code here
 
-
     let arr = [...input];
     let newArr = [];
-    let newArr2 = [];
-
     let arrFinal = [];
 
     let p = n;
-
 
     for (let i=0;i<input.length;i+=n){
 
