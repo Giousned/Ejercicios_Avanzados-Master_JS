@@ -21,6 +21,38 @@ function renderInventory(inventory) {
     // your code here
     // hint: before you just dive into coding...
     // it's a good idea to sketch out a skeleton like you've been seeing earlier in this module...
+
+    let newArrFinal =[];
+
+    for (let i of inventory){
+
+        for (let j of i.shoes){
+
+        let newArr = [];
+
+        newArr.push(i.name,j.name,j.price);
+
+        newArrFinal.push(newArr);
+        
+        }
+    }
+
+    return newArrFinal;
     
 }
-console.log(renderInventory(currentInventory))
+console.log(renderInventory(currentInventory));
+
+/* SOLUCION DADA
+function renderInventory(inventory) {
+  // your code here
+  // hint: before you just dive into coding...
+  // it's a good idea to sketch out a skeleton like you've been seeing earlier in this module...
+  let aux = [];
+  inventory.map((e) => {
+    e.shoes.map((x) => {
+      aux.push([e.name, x.name, x.price]);
+    });
+  });
+  return aux;
+}
+*/

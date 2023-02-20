@@ -18,5 +18,38 @@ let inventory = [
   ];
 
 function renderInventory(shoeList) {
-  
+
+  let newArr = [];
+  let newArrFinal = [];
+
+  shoeList.map(e =>{
+
+    newArr = [];
+
+    e.shoes.map(x => {
+
+      if (x.name.includes("black")) newArr.push(e.name,x.name,x.price)
+
+    })
+
+    if (newArr.length === 0) return newArrFinal = [];
+    else newArrFinal.push(newArr);
+
+  })
+
+  return newArrFinal;
 }
+
+console.log(renderInventory(inventory));
+
+/* SOLUCION DADA
+function renderInventory(shoeList) {
+  let newListOfBlack = []
+  shoeList.map((item, index)=>{
+      item.shoes.map((item2, index)=>{
+          if (item2.name.includes("black")) newListOfBlack.push([item.name,item2.name, item2.price])
+      })
+  })
+  return newListOfBlack;
+}
+*/
