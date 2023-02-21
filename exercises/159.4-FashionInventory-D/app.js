@@ -19,4 +19,48 @@ let inventory = [
 
 function getLaceNameDataForShoes(inventory) {
     // your code here
+
+    let arrNombresSplit = [];
+    let indice = 0;
+    let arrFinal = [];
+
+    inventory.map(e => {
+
+      e.shoes.map(x => {
+
+        if(x.name.includes("lace")){
+
+          arrNombresSplit = x.name.split(" ");
+
+          const includesLace = (element) => element.includes("lace");
+          indice = arrNombresSplit.findIndex(includesLace);
+
+          arrFinal.push({nameWords: arrNombresSplit, targetWordIndex: indice});
+
+        }
+      })
+    })
+
+    return arrFinal;
 }
+
+console.log(getLaceNameDataForShoes(inventory));
+
+/* SOLUCION DADA
+function getLaceNameDataForShoes(inventory) {
+  // your code here
+  let aux = [];
+  inventory.map((e) => {
+    e.shoes.map((x) => {
+      let splited = x.name.split(' ');
+      let counting = 0;
+      splited.map((s) => {
+        if (s.startsWith('lace'))
+          aux.push({ nameWords: splited, targetWordIndex: counting });
+        else counting++;
+      });
+    });
+  });
+  return aux;
+}
+*/
